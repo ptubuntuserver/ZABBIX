@@ -41,7 +41,8 @@ Guarda esto como C:\scripts\launch_winbox.bat:
 ###############################################################3
 @echo off
 setlocal
-set "raw=%~1"
-set "cleaned=%raw:winbox://=%"
-start "" "C:\Program Files (x86)\Winbox\Winbox.exe" "%cleaned%"
+set "ip=%~1"
+:: Limpiar el prefijo winbox:// si está presente
+set "ip=%ip:winbox://=%"
+start "" "C:\Program Files (x86)\Winbox\Winbox.exe" "%ip%"
 
