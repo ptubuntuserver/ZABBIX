@@ -1,20 +1,24 @@
 # ZABBIX
 SCRIPT-WEB-WINBOX
 ###################################################
-Archivo html +++ winbox_redirect.html  ++++
+Archivo php +++ winbox.php  ++++
 ###################################################
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Abrir Winbox</title>
-</head>
-<body>
-    <h2>Abrir MikroTik en Winbox</h2>
-    <p>Haga clic en el siguiente enlace para abrir Winbox:</p>
-    <a href="winbox://{HOST.IP}">Abrir Winbox para {$HOST_IP}</a>
-</body>
-</html>
+<?php
+if (!isset($_GET['ip'])) {
+    http_response_code(400);
+    die("Falta el parámetro 'ip'");
+}
+
+$ip = $_GET['ip'];
+
+if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+    http_response_code(400);
+    die("IP no válida");
+}
+
+header("Location: winbox://$ip");
+exit;
+?>
 ##############################################################
 Archivo .reg  +++ winbox_protocol.reg +++
 ##############################################################
