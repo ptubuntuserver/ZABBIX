@@ -32,4 +32,16 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\winbox\shell\open]
 
 [HKEY_CLASSES_ROOT\winbox\shell\open\command]
-@="\"C:\\Program Files (x86)\\Winbox\\Winbox.exe\" \"%1\""
+@="\"C:\\Windows\\System32\\cmd.exe\" /c \"C:\\scripts\\launch_winbox.bat\" \"%1\""
+
+###############################################################3
+1. Crear el archivo launch_winbox.bat:
+
+Guarda esto como C:\scripts\launch_winbox.bat:
+###############################################################3
+@echo off
+setlocal
+set "raw=%~1"
+set "cleaned=%raw:winbox://=%"
+start "" "C:\Program Files (x86)\Winbox\Winbox.exe" "%cleaned%"
+
