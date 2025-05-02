@@ -25,11 +25,11 @@ Windows Registry Editor Version 5.00
 "URL Protocol"=""
 
 [HKEY_CLASSES_ROOT\winbox\DefaultIcon]
-@="\"C:\\Program Files (x86)\\Winbox\\winbox.exe\",1"
+@="\"C:\\Program Files (x86)\\Winbox\\Winbox.exe\",1"
 
 [HKEY_CLASSES_ROOT\winbox\shell]
 
 [HKEY_CLASSES_ROOT\winbox\shell\open]
 
 [HKEY_CLASSES_ROOT\winbox\shell\open\command]
-@="\"C:\\Program Files (x86)\\Winbox\\winbox.exe\" \"%1\""
+@="\"C:\\Program Files (x86)\\Winbox\\Winbox.exe\" \"%1\""
