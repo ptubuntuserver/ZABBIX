@@ -1,7 +1,17 @@
 # ZABBIX
 SCRIPT-WEB-WINBOX
+Indicaciones:
+1. Tener instalado winbox
+2. Mover el archivo ejecutable a la ruta Windows C:\Program Files (x86)\Winbox
+3. Crear el script en zabbix con url apuntando a la ubicacion del php usando en macro. Example: http://zabbix.panama.com/zabbix/winbox/winbox.php?ip={HOST.IP}
+4. Crear el archivo php y subirlo en el servidor zabbix
+5. Crear el archivo winbox_protocol.reg y ejecutarlo (Esperar que se agregue el registro de forma satisfactoria)
+6. Crear el archivo  C:\scripts\launch_winbox.vbs en la ubicacion descripta ( hay que crear la ubiación)
+7. Ir a mapa y validar funcionamiento
+8. Darle permiso a firewall o antivirus para ejecutar sripts desde web
+9. Listo
 ###################################################
-Archivo php +++ winbox.php  ++++
+Archivo php +++ winbox.php  ++++ Para el servidor ubicarlo en Raiz del zabbix default /usr/share/zabbix/winbox
 ###################################################
 <?php
 if (!isset($_GET['ip'])) {
