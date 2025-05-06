@@ -49,7 +49,7 @@ Windows Registry Editor Version 5.00
 @="wscript.exe \"C:\\scripts\\launch_winbox.vbs\" \"%1\""
 
 ###############################################################3
-1. Crear el archivo launch_winbox.bat:
+1. Crear el archivo launch_winbox.vbs:
 
 Guarda esto como C:\scripts\launch_winbox.vbs
 ###############################################################3
