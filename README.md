@@ -21,11 +21,16 @@ if (!isset($_GET['ip'])) {
 
 $ip = $_GET['ip'];
 
+// Eliminar cualquier barra final
+$ip = rtrim($ip, '/');
+
+// Validar IP
 if (!filter_var($ip, FILTER_VALIDATE_IP)) {
     http_response_code(400);
     die("IP no válida");
 }
 
+// Redirigir sin la barra final
 header("Location: winbox://$ip");
 exit;
 ?>
@@ -61,7 +66,11 @@ raw = args(0)
 ' Quitar el prefijo winbox://
 ip = Replace(raw, "winbox://", "", 1, -1, vbTextCompare)
 
-' Ejecutar Winbox con solo la IP
+' Eliminar una posible barra final si existe
+If Right(ip, 1) = "/" Then
+    ip = Left(ip, Len(ip) - 1)
+End If
+
+' Ejecutar Winbox con la IP limpia
 Set shell = CreateObject("WScript.Shell")
 shell.Run Chr(34) & "C:\Program Files (x86)\Winbox\Winbox.exe" & Chr(34) & " " & Chr(34) & ip & Chr(34), 1, False
-
